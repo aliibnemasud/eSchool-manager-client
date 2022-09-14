@@ -6,15 +6,16 @@ import { useEffect } from 'react';
 import axios from 'axios';
 import StudentsRow from './StudentsRow';
 import StudentViewModal from './StudentViewModal';
+import UpadteInfoModal from './UpadteInfoModal';
 
 
 const Students = () => {
 
     const [allSudents, setAllStudents] = useState([]);
 
-    const [studentInfo, setStudentInfo] = useState (null);
-    
+    const [studentInfo, setStudentInfo] = useState (null);    
     const [addStudentModal, setaddStudentModal] = useState(null);
+    const [studentinfo, setUpadateInfo] = useState([])
 
     useEffect(() => {
         axios.get('http://localhost:5000/allstudents')
@@ -35,12 +36,13 @@ const Students = () => {
                         <th>Name</th>
                         <th>Class</th>
                         <th>Father's Name</th>
+                        <th>Mother's Name</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     {
-                        allSudents && allSudents.map((student, index) => <StudentsRow student={student} index={index} key={student._id} setStudentInfo={setStudentInfo} /> )
+                        allSudents && allSudents.map((student, index) => <StudentsRow student={student} index={index} key={student._id} setStudentInfo={setStudentInfo} setUpadateInfo={setUpadateInfo} /> )
                     }
 
                 </tbody>
@@ -48,6 +50,9 @@ const Students = () => {
 
             {addStudentModal && <AddStudentModal />}
             {studentInfo && <StudentViewModal studentInfo={studentInfo} />}
+            {
+                studentinfo && <UpadteInfoModal studentinfo={studentinfo} />
+            }
             
         </div>
     );

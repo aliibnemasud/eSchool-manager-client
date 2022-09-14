@@ -21,15 +21,11 @@ function App() {
 
 
         {/* Dashboard Admin */}
+        
         <Route path="/dashboard" element={<Dashboard />}>
           <Route index element={<Students />} ></Route>
           <Route path="teachers" element={<Teachers />} ></Route>
         </Route>
-
-        
-
-
-
 
       </Routes>
 
