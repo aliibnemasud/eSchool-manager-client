@@ -29,12 +29,13 @@ const AddStudentModal = () => {
 
 
     return (
-        <div className=''>
+        <div>
             {/* <!-- The button to open modal --> */}
 
             <input type="checkbox" id="add-student" className="modal-toggle" />
             <div className="modal modal-bottom sm:modal-middle text-center">
-                <div className="modal-box">
+                <div className="modal-box relative">
+                <label htmlFor="add-student" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                     <h3 className="font-bold text-lg">Student Information</h3>
 
                     <div>
@@ -67,8 +68,6 @@ const AddStudentModal = () => {
                             <label htmlFor="add-student" onClick={addStudent} className="btn">Add Student</label>
                         </div>
                     </div>
-
-
                 </div>
             </div>
 

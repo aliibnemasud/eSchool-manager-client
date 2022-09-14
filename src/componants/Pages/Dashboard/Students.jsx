@@ -5,24 +5,22 @@ import AddStudentModal from './AddStudentModal';
 import { useEffect } from 'react';
 import axios from 'axios';
 import StudentsRow from './StudentsRow';
+import StudentViewModal from './StudentViewModal';
 
 
 const Students = () => {
 
     const [allSudents, setAllStudents] = useState([]);
 
-
+    const [studentInfo, setStudentInfo] = useState (null);
+    
     const [addStudentModal, setaddStudentModal] = useState(null);
 
     useEffect(() => {
         axios.get('http://localhost:5000/allstudents')
             .then((res) => setAllStudents(res.data))
     }, [])
-
-    console.log(allSudents)
-
-
-
+    
     return (
         <div className="overflow-x-auto">
             <div className='flex justify-between items-center'>
@@ -42,13 +40,15 @@ const Students = () => {
                 </thead>
                 <tbody>
                     {
-                        allSudents && allSudents.map((student, index) => <StudentsRow student={student} index={index} key={student._id} /> )
+                        allSudents && allSudents.map((student, index) => <StudentsRow student={student} index={index} key={student._id} setStudentInfo={setStudentInfo} /> )
                     }
 
                 </tbody>
             </table>
 
             {addStudentModal && <AddStudentModal />}
+            {studentInfo && <StudentViewModal studentInfo={studentInfo} />}
+            
         </div>
     );
 };
