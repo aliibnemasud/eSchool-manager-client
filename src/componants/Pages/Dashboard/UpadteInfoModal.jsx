@@ -26,7 +26,7 @@ const UpadteInfoModal = ({studentinfo}) => {
             class: classNo,
         }
 
-        axios.put(`http://localhost:5000/student/${_id}`, studentInfo )
+        axios.put(`https://guarded-spire-40443.herokuapp.com/student/${_id}`, studentInfo )
         .then (res => toast.success(`${studentName} Information Updated Successfully!`))        
     }
 
@@ -42,30 +42,30 @@ const UpadteInfoModal = ({studentinfo}) => {
                     <h3 className="font-bold text-lg">Student Information</h3>
 
                     <div>
-                        <div class="form-control w-full max-w-xs">
-                            <label class="label">
-                                <span class="label-text">Student name</span>
+                        <div className="form-control w-full max-w-xs">
+                            <label className="label">
+                                <span className="label-text">Student name</span>
                             </label>
-                            <input defaultValue={name} ref={studentNameRef} type="text" placeholder="Jhone Doe" class="input input-bordered w-full max-w-xs" />
+                            <input defaultValue={name} ref={studentNameRef} type="text" placeholder="Jhone Doe" className="input input-bordered w-full max-w-xs" />
                         </div>
 
-                        <div class="form-control w-full max-w-xs">
-                            <label class="label">
-                                <span class="label-text">Father's Name</span>
+                        <div className="form-control w-full max-w-xs">
+                            <label className="label">
+                                <span className="label-text">Father's Name</span>
                             </label>
-                            <input defaultValue={fatherName} ref={fatherNameRef} type="text" placeholder="Father's Name" class="input input-bordered w-full max-w-xs" />
+                            <input defaultValue={fatherName} ref={fatherNameRef} type="text" placeholder="Father's Name" className="input input-bordered w-full max-w-xs" />
                         </div>
-                        <div class="form-control w-full max-w-xs">
-                            <label class="label">
-                                <span class="label-text">Mother's Name</span>
+                        <div className="form-control w-full max-w-xs">
+                            <label className="label">
+                                <span className="label-text">Mother's Name</span>
                             </label>
-                            <input defaultValue={motherName}  ref={motherNameRef} type="text" placeholder="Mother's Name" class="input input-bordered w-full max-w-xs" />
+                            <input defaultValue={motherName}  ref={motherNameRef} type="text" placeholder="Mother's Name" className="input input-bordered w-full max-w-xs" />
                         </div>
-                        <div class="form-control w-full max-w-xs">
-                            <label class="label">
-                                <span class="label-text">Class</span>
+                        <div className="form-control w-full max-w-xs">
+                            <label className="label">
+                                <span className="label-text">Class</span>
                             </label>
-                            <input defaultValue={clsssNo} ref={classRef} type="number" placeholder="One" class="input input-bordered w-full max-w-xs" />
+                            <input defaultValue={clsssNo} ref={classRef} type="number" placeholder="One" className="input input-bordered w-full max-w-xs" />
                         </div>
                         <div className="modal-action">
                             <label htmlFor="update-student-info" onClick={addStudent} className="btn">Update Student Information</label>

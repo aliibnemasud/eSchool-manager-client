@@ -18,7 +18,7 @@ const Students = () => {
     const [studentinfo, setUpadateInfo] = useState([])
 
     useEffect(() => {
-        axios.get('http://localhost:5000/allstudents')
+        axios.get('https://guarded-spire-40443.herokuapp.com/allstudents')
             .then((res) => setAllStudents(res.data))
     }, [])
     

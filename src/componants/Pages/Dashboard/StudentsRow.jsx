@@ -11,7 +11,7 @@ const StudentsRow = ({student, index, setStudentInfo, setUpadateInfo}) => {
         const confrimDelete = window.confirm(`Are you sure want to delete ${name}`);
         
         if(confrimDelete){
-           axios.delete(`http://localhost:5000/student/${id}`)
+           axios.delete(`https://guarded-spire-40443.herokuapp.com/student/${id}`)
            .then(res => {
             toast.success(`${name} profile has been deleted.`)
            })

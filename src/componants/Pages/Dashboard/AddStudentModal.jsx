@@ -23,7 +23,7 @@ const AddStudentModal = () => {
             class: classNo,
         }
 
-        axios.post('http://localhost:5000/addstudent', studentInfo )
+        axios.post('https://guarded-spire-40443.herokuapp.com/addstudent', studentInfo )
         .then (res => toast.success(`${studentName} added Successfully!`))        
     }
 
@@ -39,30 +39,30 @@ const AddStudentModal = () => {
                     <h3 className="font-bold text-lg">Student Information</h3>
 
                     <div>
-                        <div class="form-control w-full max-w-xs">
-                            <label class="label">
-                                <span class="label-text">Student name</span>
+                        <div className="form-control w-full max-w-xs">
+                            <label className="label">
+                                <span className="label-text">Student name</span>
                             </label>
-                            <input required ref={studentNameRef} type="text" placeholder="Jhone Doe" class="input input-bordered w-full max-w-xs" />
+                            <input required ref={studentNameRef} type="text" placeholder="Jhone Doe" className="input input-bordered w-full max-w-xs" />
                         </div>
 
-                        <div class="form-control w-full max-w-xs">
-                            <label class="label">
-                                <span class="label-text">Father's Name</span>
+                        <div className="form-control w-full max-w-xs">
+                            <label className="label">
+                                <span className="label-text">Father's Name</span>
                             </label>
-                            <input required ref={fatherNameRef} type="text" placeholder="Father's Name" class="input input-bordered w-full max-w-xs" />
+                            <input required ref={fatherNameRef} type="text" placeholder="Father's Name" className="input input-bordered w-full max-w-xs" />
                         </div>
-                        <div class="form-control w-full max-w-xs">
-                            <label class="label">
-                                <span class="label-text">Mother's Name</span>
+                        <div className="form-control w-full max-w-xs">
+                            <label className="label">
+                                <span className="label-text">Mother's Name</span>
                             </label>
-                            <input required ref={motherNameRef} type="text" placeholder="Mother's Name" class="input input-bordered w-full max-w-xs" />
+                            <input required ref={motherNameRef} type="text" placeholder="Mother's Name" className="input input-bordered w-full max-w-xs" />
                         </div>
-                        <div class="form-control w-full max-w-xs">
-                            <label class="label">
-                                <span class="label-text">Class</span>
+                        <div className="form-control w-full max-w-xs">
+                            <label className="label">
+                                <span className="label-text">Class</span>
                             </label>
-                            <input required ref={classRef} type="number" placeholder="One" class="input input-bordered w-full max-w-xs" />
+                            <input required ref={classRef} type="number" placeholder="One" className="input input-bordered w-full max-w-xs" />
                         </div>
                         <div className="modal-action">
                             <label htmlFor="add-student" onClick={addStudent} className="btn">Add Student</label>

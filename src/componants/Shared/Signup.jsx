@@ -34,9 +34,9 @@ const Signup = () => {
     return (
         <form className='my-10 py-10 bg-slate-100 w-1/2 mx-auto text-center' onSubmit={handleSignUp}>
             <h1 className=' mb-5 text-3xl'>Please Sign Up</h1>
-            <input type="email" ref={emailRef} required placeholder="email" class="input input-bordered w-full max-w-xs" /> <br />
-            <input type="password" ref={passwordRef} required placeholder="Password" class="input input-bordered w-full max-w-xs my-5" /> <br />
-            <input type="password" ref={passwordConfrimRef} required placeholder="Confrim Password" class="input input-bordered w-full max-w-xs mb-5" />
+            <input type="email" ref={emailRef} required placeholder="email" className="input input-bordered w-full max-w-xs" /> <br />
+            <input type="password" ref={passwordRef} required placeholder="Password" className="input input-bordered w-full max-w-xs my-5" /> <br />
+            <input type="password" ref={passwordConfrimRef} required placeholder="Confrim Password" className="input input-bordered w-full max-w-xs mb-5" />
             <br /> 
             <input type='submit' className="btn btn-primary" value="Sign Up"></input>
 
