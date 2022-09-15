@@ -34,8 +34,8 @@ const Login = () => {
                 <h1 className=' mb-5 text-3xl'>Please Login...</h1>
 
                 <form onSubmit={handleLogin}>
-                    <input type="email" ref={emailRef} placeholder="email" className="input input-bordered w-full max-w-xs" /> <br />
-                    <input type="password" ref={passwordRef} placeholder="Password" className="input input-bordered w-full max-w-xs my-5" /> <br />
+                    <input required type="email" ref={emailRef} placeholder="email" className="input input-bordered w-full max-w-xs" /> <br />
+                    <input required type="password" ref={passwordRef} placeholder="Password" className="input input-bordered w-full max-w-xs my-5" /> <br />
                     <input type="submit" className="btn btn-primary" value="Login" ></input> <br />
                 </form>
 
