@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { useRef } from 'react';
 import { useAuthState, useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
-import Loading from './Loading';
+
 
 const Signup = () => {
 
-    const [createUserWithEmailAndPassword, loading] = useCreateUserWithEmailAndPassword(auth);
+    const [createUserWithEmailAndPassword] = useCreateUserWithEmailAndPassword(auth);
     const emailRef = useRef('');
     const passwordRef = useRef('');
     const passwordConfrimRef = useRef('');
