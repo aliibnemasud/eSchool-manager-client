@@ -27,7 +27,6 @@ const AddStudentModal = () => {
         .then (res => toast.success(`${studentName} added Successfully!`))        
     }
 
-
     return (
         <div>
             {/* <!-- The button to open modal --> */}

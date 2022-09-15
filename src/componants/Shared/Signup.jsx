@@ -1,34 +1,41 @@
 import React, { useState } from 'react';
 import { useRef } from 'react';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { Link } from 'react-router-dom';
+import { useAuthState, useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
+import Loading from './Loading';
 
 const Signup = () => {
 
-    const [createUserWithEmailAndPassword , user, loading] = useCreateUserWithEmailAndPassword(auth);
+    const [createUserWithEmailAndPassword, loading] = useCreateUserWithEmailAndPassword(auth);
     const emailRef = useRef('');
     const passwordRef = useRef('');
     const passwordConfrimRef = useRef('');
     const [error, setError] = useState('');
+    const navigate = useNavigate();
+    const [user] = useAuthState(auth)
 
-    const handleSignUp = e => { 
-
+    const handleSignUp = e => {
         e.preventDefault();
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
         const cPassword = passwordConfrimRef.current.value;
-        
-        if(password === cPassword) {
+        if (password === cPassword) {
             createUserWithEmailAndPassword(email, password)
             toast.success("Account Created Success")
         }
         else {
-            setError("Password Doesn't match.")
+            setError("Password Doesn't match.")            
         }
+    }
 
-       
+    /* if (loading) {
+        return <Loading></Loading>
+    } */
+
+    if (user) {
+        navigate('/dashboard')
     }
 
     return (
@@ -37,15 +44,15 @@ const Signup = () => {
             <input type="email" ref={emailRef} required placeholder="email" className="input input-bordered w-full max-w-xs" /> <br />
             <input type="password" ref={passwordRef} required placeholder="Password" className="input input-bordered w-full max-w-xs my-5" /> <br />
             <input type="password" ref={passwordConfrimRef} required placeholder="Confrim Password" className="input input-bordered w-full max-w-xs mb-5" />
-            <br /> 
+            <br />
             <input type='submit' className="btn btn-primary" value="Sign Up"></input>
 
-            <p className='text-red-600'>{error}</p>            
+            <p className='text-red-600'>{error}</p>
             <div className='flex items-center justify-center'>
                 <p>Already Have an account? </p>
                 <Link to="/login" className='btn btn-link'>Login</Link>
             </div>
-            
+
         </form>
     );
 };
