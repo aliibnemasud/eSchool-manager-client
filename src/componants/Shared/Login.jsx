@@ -7,7 +7,7 @@ import Loading from './Loading';
 
 const Login = () => {
     
-    const [signInWithEmailAndPassword, user, loading, error,] = useSignInWithEmailAndPassword(auth);    
+    const [signInWithEmailAndPassword, user, loading] = useSignInWithEmailAndPassword(auth);
 
     const emailRef = useRef('');
     const passwordRef = useRef('');
@@ -31,7 +31,7 @@ const Login = () => {
     return (
         <div className=' py-10 '>
             <div className=' my-10 py-10 bg-slate-100 w-1/2 mx-auto text-center'>
-                <h1 className=' mb-5 text-3xl'>Please Login...</h1>
+                <h1 className='mb-5 text-3xl'>Please Login</h1>
 
                 <form onSubmit={handleLogin}>
                     <input required type="email" ref={emailRef} placeholder="email" className="input input-bordered w-full max-w-xs" /> <br />
